@@ -71,6 +71,17 @@
       "no-undef": "off",
       "no-restricted-globals": "off",
       "no-unused-vars": "off"
+    },
+    "parserOptions": {
+      "babelOptions": {
+        "presets": [
+          [
+            "babel-preset-react-app",
+            false
+          ],
+          "babel-preset-react-app/prod"
+        ]
+      }
     }
   },
   "browserslist": {
