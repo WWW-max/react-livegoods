@@ -148,3 +148,17 @@ select:focus,
 textarea:focus {
     outline: -webkit-focus-ring-color auto 0;
 }
+/* 移动端适配方法：vw布局 */
+html {
+/* 100/750 *100 */
+   font-size: 13.333333vw;
+}
+@media(min-width:750px){
+    html{
+        font-size: 100px;
+    }
+}
+/* body设置字体大小，否则导致字体特别大 */
+body{
+    font-size: 12px;
+}
