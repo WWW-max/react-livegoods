@@ -1,0 +1,28 @@
+.home-header {
+  display: flex;
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #ff5555;
+}
+.home-header .address,
+.home-header .cart {
+  color: #fff;
+  font-size: 0.34rem;
+  text-align: center;
+}
+.home-header .address {
+  width: 1.5rem;
+}
+.home-header .address .city {
+  color: #fff;
+}
+.home-header .cart {
+  width: 1rem;
+  margin-left: 0.1rem;
+}
+.home-header .cart .iconfont {
+  font-size: 0.5rem;
+}
+.home-header .search {
+  flex: 1;
+}
