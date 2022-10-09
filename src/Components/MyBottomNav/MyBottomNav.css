@@ -1,3 +1,16 @@
 .nav {
   display: flex;
+  border-top: 0.01rem solid #ccc;
+  height: 1rem;
+}
+.nav .item {
+  flex: 1;
+  text-align: center;
+}
+.nav .item .iconfont {
+  display: block;
+  margin: 0.1rem 0;
+}
+.nav .active {
+  color: blue;
 }

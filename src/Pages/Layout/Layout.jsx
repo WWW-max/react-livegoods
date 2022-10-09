@@ -1,5 +1,6 @@
 import React from 'react';
 import MyBottomNav from '../../Components/MyBottomNav/MyBottomNav';
+import './Layout.less';
 
 export default function Layout(props) {
   return (
