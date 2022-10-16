@@ -15,11 +15,11 @@ export default function MyCarousel(props) {
                 {
                     props.list.map((item, index) => {
                         return (
-                            <div key={index}>
+                            <div key={item.id}>
                                 <Image
                                     width={'100%'}
                                     heigth={200}
-                                    src={item}
+                                    src={item.imgUrl}
                                 />
                             </div>
                         );

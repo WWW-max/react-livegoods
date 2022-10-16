@@ -10,7 +10,7 @@ const service = Axios.create({
     timeout: 5000
 })
 
-// 请求拦截
+// 请求拦截：发送请求前，进行统一配置
 service.interceptors.request.use(config => {
     // 开启请求进度条
     nProgress.start();
