@@ -6,7 +6,7 @@ import nProgress from "nprogress";
 import 'nprogress/nprogress.css';
 const service = Axios.create({
     // 配置通用的基础路径和超时
-    baseURL:'http://localhost:7788',
+    baseURL:'/api', // 会给每个请求链接前面都加上/api,例如/api/banner
     timeout: 5000
 })
 
@@ -19,7 +19,7 @@ service.interceptors.request.use(config => {
 
     return config;
 })
-// 相应拦截
+// 响应拦截
 service.interceptors.response.use(res => {
     // 结束进度条
     nProgress.done();
