@@ -12,14 +12,21 @@ const list = [banner1, banner2, banner3, banner4];
 export default function Home() {
   // 定义变量
   let [list, setList] = useState([]);
-  useEffect(() => {
+  useEffect(async () => {
     // 发送请求
-    getBanner().then(res => {
-      console.log(res);
+    // getBanner().then(res => {
+    //   console.log(res);
+    //   setList(res.banner);
+    // }).catch(err => {
+    //   console.log(err);
+    // })
+    // async await方式发送请求
+    try {
+      const res = await getBanner();
       setList(res.banner);
-    }).catch(err => {
-      console.log(err);
-    })
+    } catch (error) {
+      console.log(error);
+    }
   },[]);
   return (
     <div>
