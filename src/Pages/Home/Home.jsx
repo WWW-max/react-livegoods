@@ -6,6 +6,7 @@ import banner2 from '../../assets/img/banner2.jpeg';
 import banner3 from '../../assets/img/banner3.jpeg';
 import banner4 from '../../assets/img/banner4.jpeg';
 import { getBanner } from '../../api';
+import './Home.less';
 
 const list = [banner1, banner2, banner3, banner4];
 
@@ -35,6 +36,10 @@ export default function Home() {
       {/* 轮播图 */}
       <MyCarousel list={list}/>
       {/* 找室友 */}
+      <div className="navs">
+        <div className="item">找室友</div>
+        <div className="item">宜居社区</div>
+      </div>
       {/* 热门房源 */}
     </div>
   )
