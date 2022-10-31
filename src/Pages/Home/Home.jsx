@@ -14,22 +14,33 @@ const list = [banner1, banner2, banner3, banner4];
 export default function Home() {
   // 定义变量
   let [list, setList] = useState([]);
-  useEffect(async () => {
-    // 发送请求
-    // getBanner().then(res => {
-    //   console.log(res);
-    //   setList(res.banner);
-    // }).catch(err => {
-    //   console.log(err);
-    // })
-    // async await方式发送请求
-    try {
-      const res = await getBanner();
-      setList(res.banner);
-    } catch (error) {
-      console.log(error);
+  // useEffect(async () => {
+  //   // 发送请求
+  //   // getBanner().then(res => {
+  //   //   console.log(res);
+  //   //   setList(res.banner);
+  //   // }).catch(err => {
+  //   //   console.log(err);
+  //   // })
+  //   // async await方式发送请求
+  //   try {
+  //     const res = await getBanner();
+  //     setList(res.banner);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },[]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await getBanner();
+        setList(res.banner);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  },[]);
+    fetchData();
+  }, []);
   return (
     <div>
       {/* 头部区域*/}
