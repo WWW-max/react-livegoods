@@ -9,13 +9,39 @@ export default function House() {
             <li className={style.item}>
                 <img src={img} alt="" height={200} width='100%'/>
                 <div className={style.info}>
-                    <div className="desc">
+                    <div className={style.desc}>
                         <div>东城区-xxx</div>
                         <div>一室一厅</div>
                     </div>
-                    <div className="type">
-                        <div className='zu'>整租</div>
-                        <div className="price">5000</div>
+                    <div className={style.type}>
+                        <span className={style.zu}>整租</span>
+                        <div className={style.price}>5000</div>
+                    </div>
+                </div>
+            </li>
+            <li className={style.item}>
+                <img src={img} alt="" height={200} width='100%'/>
+                <div className={style.info}>
+                    <div className={style.desc}>
+                        <div>东城区-xxx</div>
+                        <div>一室一厅</div>
+                    </div>
+                    <div className={style.type}>
+                        <span className={style.zu}>整租</span>
+                        <div className={style.price}>5000</div>
+                    </div>
+                </div>
+            </li>
+            <li className={style.item}>
+                <img src={img} alt="" height={200} width='100%'/>
+                <div className={style.info}>
+                    <div className={style.desc}>
+                        <div>东城区-xxx</div>
+                        <div>一室一厅</div>
+                    </div>
+                    <div className={style.type}>
+                        <span className={style.zu}>整租-</span>
+                        <div className={style.price}>5000</div>
                     </div>
                 </div>
             </li>
