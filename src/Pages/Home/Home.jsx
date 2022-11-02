@@ -31,16 +31,19 @@ export default function Home() {
   //   }
   // },[]);
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await getBanner();
-        setList(res.banner);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
+    getBannerList();
   }, []);
+  /**
+   * 获取轮播图列表
+   */
+  const getBannerList = async () => {
+    try {
+      const res = await getBanner();
+      setList(res.banner);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div>
       {/* 头部区域*/}
