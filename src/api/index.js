@@ -18,3 +18,9 @@ import base from './base';
  * @returns [{id:'', imgURL:''},{},{}]
  */
 export const getBanner = () =>  Ajax.get(base.banner);
+/**
+ * 获取首页热门房源列表
+ * @params {*} params
+ * @return {city: '北京'}
+ */
+export const getHotHouse=(params)=>Ajax.get(base.hothouse,{params})

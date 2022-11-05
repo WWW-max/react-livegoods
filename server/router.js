@@ -21,5 +21,31 @@ router.get('/banner', (req,res) => {
     })
     res.send(data);
 })
-
+/**
+ * 获取热门房源接口
+ * 参数： {city:'北京'}
+ */
+router.get('/hothouse', (req, res) => {
+    let city = req.query.city || '北京';
+    res.send(Mock.mock({
+        status: 200,
+        'list|5': [
+            {
+                'id|+1': 1,
+                address: city + '-@cword(3,8)',
+                'huxing|1': ['一室一厅', '两室一厅', '三室两厅'],
+                'type|1': ['整租', '合租'],
+                'price|2000-10000': 1, // 价格
+                'imgUrl|1': [
+                    'http://iwenwiki.com/api/livable/shop/z1.jpg',
+                    'http://iwenwiki.com/api/livable/details/2.jpg',
+                    'http://iwenwiki.com/api/livable/shop/z2.jpg',
+                    'http://iwenwiki.com/api/livable/details/4.jpg',
+                    'http://iwenwiki.com/api/livable/shop/z3.jpg',
+                    'http://iwenwiki.com/api/livable/details/6.jpg',
+                ]
+            }
+        ]
+    }))
+})
 module.exports = router;
