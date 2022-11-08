@@ -5,7 +5,7 @@ import banner1 from '../../assets/img/banner1.jpeg';
 import banner2 from '../../assets/img/banner2.jpeg';
 import banner3 from '../../assets/img/banner3.jpeg';
 import banner4 from '../../assets/img/banner4.jpeg';
-import { getBanner } from '../../api';
+import { getBanner, getHotHouse } from '../../api';
 import './Home.less';
 import House from './House/House';
 
@@ -13,7 +13,8 @@ const list = [banner1, banner2, banner3, banner4];
 
 export default function Home() {
   // 定义变量
-  let [list, setList] = useState([]);
+  let [list, setList] = useState([]); // 轮播图
+  let [houses, sethouses] = useState([]); // 热门房源
   // useEffect(async () => {
   //   // 发送请求
   //   // getBanner().then(res => {
@@ -32,6 +33,7 @@ export default function Home() {
   // },[]);
   useEffect(() => {
     getBannerList();
+    getHotHouseList();
   }, []);
   /**
    * 获取轮播图列表
@@ -40,6 +42,17 @@ export default function Home() {
     try {
       const res = await getBanner();
       setList(res.banner);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  /**
+   * 获取热门房源
+   */
+  async function getHotHouseList() {
+    try {
+      const res = await getHotHouse({city: '上海'});
+      sethouses(res.list); 
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +69,7 @@ export default function Home() {
         <div className="item">宜居社区</div>
       </div>
       {/* 热门房源 */}
-      <House />
+      <House list={houses}/>
     </div>
   )
 }
