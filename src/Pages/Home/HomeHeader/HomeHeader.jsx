@@ -7,7 +7,7 @@ export default function HomeHeader() {
         <div className='home-header'>
             {/* 左侧 */}
             <div className="address">
-                <Link className='city' to={'/'}>
+                <Link className='city' to={'/city'}>
                     北京
                     <i className='iconfont icon-xiangxia'></i>
                 </Link>
