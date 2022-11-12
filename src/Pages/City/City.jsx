@@ -1,9 +1,10 @@
 import React from 'react'
+import CityHeader from './CityHeader/CityHeader'
 
 export default function City() {
   return (
     <div>
-        <i className='iconfont icon-back'></i>
+       <CityHeader />
     </div>
   )
 }
