@@ -24,3 +24,7 @@ export const getBanner = () =>  Ajax.get(base.banner);
  * @return {city: '北京'}
  */
 export const getHotHouse=(params)=>Ajax.get(base.hothouse,{params})
+/**
+ * 获取城市选择中的热门城市
+ */
+export const getHotCity=() => Ajax.get(base.selectCity);

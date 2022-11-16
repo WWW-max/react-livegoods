@@ -1,7 +1,7 @@
 const Mock = require('mockjs');
 const express = require('express');
 const router = express.Router();
-
+const citys = require('./data/city/data.json');
 // 测试接口
 router.get('/', (req, res) => {
     res.send('测试成功！');
@@ -48,4 +48,13 @@ router.get('/hothouse', (req, res) => {
         ]
     }))
 })
+/**
+ * 
+ */
+router.get('/selectCity', (req, res) => {
+    res.send({
+        status: 200,
+        data: citys
+    })
+});
 module.exports = router;
