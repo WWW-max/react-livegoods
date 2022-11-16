@@ -9,7 +9,7 @@ export default function House(props) {
             {
                 props.list.map(item => {
                     return (
-                        <li className={style.item}>
+                        <li className={style.item} key={item.id}>
                             <img src={item.imgUrl} alt="" height={200} width='100%'/>
                             <div className={style.info}>
                                 <div className={style.desc}>
