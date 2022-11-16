@@ -1,9 +1,14 @@
 import React from 'react';
 import style from './CityHeader.less';
-import { withRouter } from 'react-router-dom';
-function CityHeader(props) {
+import { withRouter, useHistory } from 'react-router-dom';
+export default function CityHeader(props) {
+  let history = useHistory();
+  // 返回上一页
   const back = () => {
-    props.history.goBack();
+    // 方式1->withRouter高价组件
+    // props.history.goBack();
+    // 方式2->hook
+    history.goBack();
   }
   return (
     <div className='city-header'>
@@ -15,5 +20,5 @@ function CityHeader(props) {
   )
 }
 /**withRouter高价组件包裹CityHeader组件，增强CityHeader功能，使其props具有history属性 */
-export default withRouter(CityHeader);
+// export default withRouter(CityHeader);
 
