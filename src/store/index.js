@@ -1,5 +1,7 @@
 // 创建仓库
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 
+// 引入日志
+import logger from 'redux-logger';
 // 导出仓库
-export default createStore(rootReducer);
+export default createStore(rootReducer, applyMiddleware(logger));
