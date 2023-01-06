@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import CityHeader from './CityHeader/CityHeader'
+import { connect } from 'react-redux';
 import './City.less';
 import { getHotCity } from '../../api';
-export default function City() {
+function City(props) {
   const [hotCity, setHotCity] = useState([]); // 热门城市
   useEffect(() => {
     getCity()
@@ -18,6 +19,7 @@ export default function City() {
         console.log(error);
     }
   }
+  console.log('props', props);
   return (
     <div>
         {/* 头部 */}
@@ -28,7 +30,7 @@ export default function City() {
                 当前城市
             </div>
             <div className="city-name">
-                北京
+                {props.cityName}
             </div>
          </div>
         {/* 热门城市 */}
@@ -43,3 +45,7 @@ export default function City() {
     </div>
   )
 }
+
+export default connect(state => ({
+  cityName: state.city,
+}))(City);

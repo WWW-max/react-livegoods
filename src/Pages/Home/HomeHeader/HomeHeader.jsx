@@ -1,14 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import MyInput from '../../../Components/MyInput/MyInput';
 import './HomeHeader.less';
-export default function HomeHeader() {
+function HomeHeader(props) {
     return (
         <div className='home-header'>
             {/* 左侧 */}
             <div className="address">
                 <Link className='city' to={'/city'}>
-                    北京
+                    {props.cityName}
                     <i className='iconfont icon-xiangxia'></i>
                 </Link>
             </div>
@@ -23,3 +24,7 @@ export default function HomeHeader() {
         </div>
     )
 }
+
+export default connect(state => ({
+    cityName: state.city,
+}))(HomeHeader);
