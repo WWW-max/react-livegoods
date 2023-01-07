@@ -3,6 +3,7 @@ import CityHeader from './CityHeader/CityHeader'
 import { connect } from 'react-redux';
 import './City.less';
 import { getHotCity } from '../../api';
+import { SET_CITY } from '../../store/action/action-type';
 function City(props) {
   const [hotCity, setHotCity] = useState([]); // 热门城市
   useEffect(() => {
@@ -19,7 +20,9 @@ function City(props) {
         console.log(error);
     }
   }
-  console.log('props', props);
+  function selectCity (name){
+    props.setCity(name);
+  }
   return (
     <div>
         {/* 头部 */}
@@ -39,13 +42,18 @@ function City(props) {
                 热门城市
             </div>
            {
-              hotCity?.map(item  => <div className="city-name" key={item.id}>{item.name}</div>)
+              hotCity?.map(item  => <div className="city-name" key={item.id} onClick={selectCity.bind(null,item.name)}>{item.name}</div>)
            }
          </div>
     </div>
   )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCity: (name) =>{ dispatch({type:SET_CITY,payload:name})}
+  }
+}
 export default connect(state => ({
   cityName: state.city,
-}))(City);
+}), mapDispatchToProps)(City);
