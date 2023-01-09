@@ -25,6 +25,8 @@ function City(props) {
     props.setCity(name);
     // 跳转页面
     props.history.goBack();
+    // 持久化
+    localStorage.setItem('city',name);
   }
   return (
     <div>
