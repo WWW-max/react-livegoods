@@ -21,7 +21,10 @@ function City(props) {
     }
   }
   function selectCity (name){
+    // 存到redux
     props.setCity(name);
+    // 跳转页面
+    props.history.goBack();
   }
   return (
     <div>
