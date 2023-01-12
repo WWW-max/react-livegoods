@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import MyCarousel from '../../Components/MyCarousel/MyCarousel';
 import HomeHeader from './HomeHeader/HomeHeader';
 import banner1 from '../../assets/img/banner1.jpeg';
@@ -11,7 +12,7 @@ import House from './House/House';
 
 const list = [banner1, banner2, banner3, banner4];
 
-export default function Home() {
+function Home(props) {
   // 定义变量
   let [list, setList] = useState([]); // 轮播图
   let [houses, sethouses] = useState([]); // 热门房源
@@ -51,7 +52,7 @@ export default function Home() {
    */
   async function getHotHouseList() {
     try {
-      const res = await getHotHouse({city: '上海'});
+      const res = await getHotHouse({city: props.city});
       sethouses(res.list); 
     } catch (error) {
       console.log(error);
@@ -60,7 +61,7 @@ export default function Home() {
   return (
     <div>
       {/* 头部区域*/}
-      <HomeHeader />
+      <HomeHeader city={props.city} />
       {/* 轮播图 */}
       <MyCarousel list={list}/>
       {/* 找室友 */}
@@ -73,3 +74,7 @@ export default function Home() {
     </div>
   )
 }
+
+export default connect(state => ({
+  city: state.cityName,
+}))(Home);
