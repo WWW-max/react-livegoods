@@ -34,8 +34,8 @@ function Home(props) {
   // },[]);
   useEffect(() => {
     getBannerList();
-    getHotHouseList();
   }, []);
+
   /**
    * 获取轮播图列表
    */
@@ -47,17 +47,22 @@ function Home(props) {
       console.log(error);
     }
   }
-  /**
-   * 获取热门房源
-   */
-  async function getHotHouseList() {
-    try {
-      const res = await getHotHouse({city: props.city});
-      sethouses(res.list); 
-    } catch (error) {
-      console.log(error);
-    }
+
+  /** 基于依赖(城市变化)去发送请求 */
+  useEffect(() => {
+    /**
+ * 获取热门房源
+ */
+async function getHotHouseList() {
+  try {
+    const res = await getHotHouse({city: props.city});
+    sethouses(res.list); 
+  } catch (error) {
+    console.log(error);
   }
+}
+}, [props.city]);
+
   return (
     <div>
       {/* 头部区域*/}
