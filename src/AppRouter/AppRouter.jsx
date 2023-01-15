@@ -6,6 +6,7 @@ import Live from '../Pages/Live/Live';
 import Mine from '../Pages/Mine/Mine';
 import Layout from '../Pages/Layout/Layout';
 import City from '../Pages/City/City';
+import Search from '../Pages/Search/Search';
 
 export default function AppRouter() {
   return (
@@ -13,6 +14,7 @@ export default function AppRouter() {
     <Router>
         <Switch>
             <Route exact path={'/city'} component={City} />
+            <Route exact path={'/search/:val'} component={Search} />
             <Layout>
                 <Route exact path={'/'} component={Home} />
                 <Route path={'/shop'} component={Shop} />
