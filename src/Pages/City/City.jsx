@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './City.less';
 import { getHotCity } from '../../api';
 import { setCityAction } from '../../store/action/action';
+import CommonHeader from '../../Components/CommonHeader/CommonHeader';
 function City(props) {
   const [hotCity, setHotCity] = useState([]); // 热门城市
   useEffect(() => {
@@ -31,7 +32,7 @@ function City(props) {
   return (
     <div>
         {/* 头部 */}
-       <CityHeader />
+       <CommonHeader>城市选择</CommonHeader>
         {/* 当前城市 */}
          <div className="city-box">
             <div className="city-tile">
