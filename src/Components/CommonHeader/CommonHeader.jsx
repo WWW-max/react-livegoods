@@ -12,8 +12,8 @@ export default function CommonHeader(props) {
   }
   return (
     <div className='city-header'>
-         <i className='iconfont icon-back'></i>
-         <div className='title' onClick={back}>
+         <i className='iconfont icon-back' onClick={back} />
+         <div className='title'>
             {/* 预留空间 */}
             {props.children}
          </div>

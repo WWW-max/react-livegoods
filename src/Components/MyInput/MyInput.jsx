@@ -7,6 +7,7 @@ const inputStyle ={
     width:'100%',
     borderRadius:'0.1rem',
     paddingLeft:'0.2rem',
+    color: '#333',
 }
 export default function MyInput() {
   const [val, setVal] = useState('');

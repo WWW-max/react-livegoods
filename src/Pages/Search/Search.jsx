@@ -4,8 +4,6 @@ import CommonHeader  from '../../Components/CommonHeader/CommonHeader';
 import MyInput from '../../Components/MyInput/MyInput';
 
 export default function Search(props) {
-    const history = useHistory();
-    console.log('[-', props);
   return (
     <div className='title'>
         <CommonHeader>
