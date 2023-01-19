@@ -49,7 +49,7 @@ router.get('/hothouse', (req, res) => {
     }))
 })
 /**
- * 
+ * 城市选择，热门城市
  */
 router.get('/selectCity', (req, res) => {
     res.send({
@@ -57,4 +57,34 @@ router.get('/selectCity', (req, res) => {
         data: citys
     })
 });
+
+/**
+ * 搜索房源接口
+ * params: 当前城市、搜索关键字、请求页码
+ * city:城市
+ * val：关键字
+ * page：页码
+ * http://localhost:8888/search?city=北京&val=123 &page=
+ */
+router.get('/search', (req, res) => {
+    let { city, val, page = 0} = req.query;
+    res.send(Mock.mock({
+        success: true,
+        nextPage: +page + 1,
+        'list|10': [{// 生成10条数据
+            'img|1': [// 随机取一个图片
+            'http://iwenwiki.com/api/livable/search/1.jpg',
+            'http://iwenwiki.com/api/livable/search/2.jpg',
+            'http://iwenwiki.com/api/livable/search/3.jpg',
+            'http://iwenwiki.com/api/livable/search/4.jpg',
+            'http://iwenwiki.com/api/livable/search/5.jpg',
+            'http://iwenwiki.com/api/livable/search/6.jpg',
+            'http://iwenwiki.com/api/livable/search/7.jpg',
+            'http://iwenwiki.com/api/livable/search/8.jpg',
+            'http://iwenwiki.com/api/livable/search/9.jpg',
+            'http://iwenwiki.com/api/livable/search/10.jpg',
+        ]
+        }]
+    }))
+})
 module.exports = router;
