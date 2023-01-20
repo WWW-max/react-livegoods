@@ -28,3 +28,8 @@ export const getHotHouse=(params)=>Ajax.get(base.hothouse,{params})
  * 获取城市选择中的热门城市
  */
 export const getHotCity=() => Ajax.get(base.selectCity);
+
+/**
+ * 搜索房源
+ */
+export const getSearch=(params) => Ajax.get(base.search, {params: params}) 

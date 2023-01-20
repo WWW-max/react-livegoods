@@ -1,5 +1,6 @@
 const Mock = require('mockjs');
 const express = require('express');
+const { v4 } = require('uuid');
 const router = express.Router();
 const citys = require('./data/city/data.json');
 // 测试接口
@@ -83,7 +84,24 @@ router.get('/search', (req, res) => {
             'http://iwenwiki.com/api/livable/search/8.jpg',
             'http://iwenwiki.com/api/livable/search/9.jpg',
             'http://iwenwiki.com/api/livable/search/10.jpg',
-        ]
+            ],
+            id:function(){
+                return v4()
+            },// id自增
+            title: city + val + '- @cword(5,8)', // 房源信息
+            'total|6-30': 1, // 总楼层高度，随机获取一个楼层
+            'current|1-30': 1, // 楼层 1-32层
+            floor: function () {
+                if (this.total >= this.current) {
+                    return `${this.current}/${this.total}`
+                } else {
+                    return `${this.total}/${this.current}`
+                }
+            },
+            'huxing|1': ['一室一厅', '两室一厅', '三室一厅'], // 户型
+            'area|40-140': 1, // 总面积
+            'type|1': ['整租', '合租'], // 出租类型
+            'price|3000-20000': 1, // 租金
         }]
     }))
 })

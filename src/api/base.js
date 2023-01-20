@@ -4,5 +4,6 @@ const base = {
     banner:'/banner', // 轮播图接口
     hothouse: '/hothouse', // 首页热门房源列表
     selectCity: '/selectCity', // 城市选择 热门城市
+    search: '/search', // 搜索房源接口
 }
 export default base;
