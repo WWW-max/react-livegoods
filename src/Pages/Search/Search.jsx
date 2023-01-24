@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSearch } from '../../api';
@@ -7,7 +7,6 @@ import MyInput from '../../Components/MyInput/MyInput';
 import SearchList from './SearchList/SearchList';
 
 function Search(props) {
-
   const [list, setList] = useState([]);
   useEffect(() => {
     getSearchList();
