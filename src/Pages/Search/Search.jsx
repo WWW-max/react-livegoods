@@ -9,17 +9,17 @@ import SearchList from './SearchList/SearchList';
 function Search(props) {
   const [list, setList] = useState([]);
   useEffect(() => {
-    getSearchList();
+    async function getSearchList(){
+      try {
+        const res = await getSearch({city: props.city, val: props.match.params.val });
+        setList(res?.list);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }, [props.city, props.match.params.val]);
 
-  async function getSearchList(){
-    try {
-      const res = await getSearch({city: props.city, val: props.match.params.val });
-      setList(res?.list);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+
   return (
     <div className='title'>
       {/* 公共头部 */}
