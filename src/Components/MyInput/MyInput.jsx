@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const inputStyle ={
     paddingLeft:'0.2rem',
     color: '#333',
 }
-export default function MyInput() {
+export default function MyInput(props) {
   const [val, setVal] = useState('');
   const history = useHistory();
   function inputValChange(e){
@@ -22,6 +22,12 @@ export default function MyInput() {
       history.push(`/search/${val}`);
     }
   }
+  useEffect(() => {
+    console.log('propsx', props?.val);
+    if (props?.val) {
+      setVal(props?.val);
+    }
+  }, [props?.val]);
   return (
     <>
     <input style={inputStyle} value={val} onChange={inputValChange} onKeyUp={getKeyUp}/>

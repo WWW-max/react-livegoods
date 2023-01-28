@@ -24,7 +24,7 @@ function Search(props) {
     <div className='title'>
       {/* 公共头部 */}
         <CommonHeader>
-            <MyInput />
+            <MyInput val={props.match.params.val}/>
         </CommonHeader>
         <div>
              获取参数：{props.match.params.val}
