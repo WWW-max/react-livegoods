@@ -12,11 +12,13 @@ function Search(props) {
     async function getSearchList(){
       try {
         const res = await getSearch({city: props.city, val: props.match.params.val });
+        console.log('res->', res);
         setList(res?.list);
       } catch (error) {
         console.error(error);
       }
     }
+    getSearchList();
   }, [props.city, props.match.params.val]);
 
 
