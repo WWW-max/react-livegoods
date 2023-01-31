@@ -5,6 +5,7 @@ import { getSearch } from '../../api';
 import CommonHeader  from '../../Components/CommonHeader/CommonHeader';
 import MyInput from '../../Components/MyInput/MyInput';
 import SearchList from './SearchList/SearchList';
+import LoadMore from '../../Components/LoadMore/LoadMore';
 
 function Search(props) {
   const [list, setList] = useState([]);
@@ -33,6 +34,8 @@ function Search(props) {
         </div>
         {/* 搜索列表 */}
         <SearchList list={list}/>
+        {/* 加载更多 */}
+        <LoadMore />
     </div>
   )
 }
