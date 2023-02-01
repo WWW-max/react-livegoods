@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-export default function LoadMore() {
+export default function LoadMore(props) {
   // 定义ref
   const myRef = useRef();
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function LoadMore() {
        if ((scrollTop + clientHeight) >= divHeight && flag) {
         console.log('重新加载。。。');
         flag = false;
+        props.loadData(props.pageNum);
        }
     }
   }, []);
