@@ -13,11 +13,12 @@ function Search(props) {
     getSearchList();
   }, []);
 
-  async function getSearchList(){
+  async function getSearchList(num){
     try {
-      const res = await getSearch({city: props.city, val: props.match.params.val });
+      const res = await getSearch({city: props.city, val: props.match.params.val, page: num  });
       console.log('res->', res);
-      setList(res?.list);
+      // 数据拼接： 老数据+新数据
+      setList([...list, ...res.list]);
     } catch (error) {
       console.error(error);
     }
