@@ -56,6 +56,7 @@ function Home(props) {
 async function getHotHouseList() {
   try {
     const res = await getHotHouse({city: props.city});
+    console.log('resss', res);
     sethouses(res.list); 
   } catch (error) {
     console.log(error);
