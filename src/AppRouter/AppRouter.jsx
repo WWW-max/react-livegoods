@@ -7,6 +7,7 @@ import Mine from '../Pages/Mine/Mine';
 import Layout from '../Pages/Layout/Layout';
 import City from '../Pages/City/City';
 import Search from '../Pages/Search/Search';
+import Login from '../Pages/Login/Login';
 
 export default function AppRouter() {
   return (
@@ -20,6 +21,7 @@ export default function AppRouter() {
                 <Route path={'/shop'} component={Shop} />
                 <Route path={'/live'} component={Live} />
                 <Route path={'/mine'} component={Mine} />
+                <Route path="/login" component={Login} />
             </Layout>
         </Switch>
     </Router>
