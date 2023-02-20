@@ -9,8 +9,8 @@ export default function Login() {
     // 1.获取用户名
     let val = myRef.current.value;
     // 2.把用户信息存到redux（token, 用户名，islogin）
-    
     // 3.跳转页面
+    localStorage.setItem('username', val);
   }
   return (
     <div>
