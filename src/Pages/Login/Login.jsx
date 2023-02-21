@@ -1,7 +1,9 @@
 import React, { useRef  } from 'react';
+import { connect } from 'react-redux';
+import { setUserAction } from '../../store/action/action';
 import './Login.less';
 
-export default function Login() {
+function Login(props) {
   // 创建ref: 函数组件中只能获取DOM元素，类组件中还能获取组件实例
   const myRef = useRef();
   // 登录事件
@@ -9,6 +11,7 @@ export default function Login() {
     // 1.获取用户名
     let val = myRef.current.value;
     // 2.把用户信息存到redux（token, 用户名，islogin）
+    props.setUser(val);
     // 3.跳转页面
     localStorage.setItem('username', val);
   }
@@ -33,3 +36,7 @@ export default function Login() {
     </div>
   )
 }
+
+export default connect(null, dispatch => ({
+  setUser: (username) => { dispatch(setUserAction(username))}
+}))(Login);
