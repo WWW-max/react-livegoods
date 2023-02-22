@@ -8,10 +8,15 @@ import { Provider } from 'react-redux';
 import store from './store/index';
 // 引入初始化样式
 import './assets/css/reset.css';
-import { setCityAction } from './store/action/action';
+import { setCityAction, setUserAction } from './store/action/action';
 
+// 从本地存储里取
 if (localStorage.getItem('city')){
   store.dispatch(setCityAction(localStorage.getItem('city')))
+}
+
+if (localStorage.getItem('username')) {
+  store.dispatch(setUserAction(localStorage.getItem('username')))
 }
 ReactDOM.render(
   <React.StrictMode>
