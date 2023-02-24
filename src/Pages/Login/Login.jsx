@@ -37,11 +37,7 @@ function Login(props) {
   )
 }
 
-mapStateToProps = (state) => {
-  return {
-    a: state.a,
-  }
-}
+
 export default connect(null, dispatch => ({
   setUser: (username) => { dispatch(setUserAction(username))}
 }))(Login);
