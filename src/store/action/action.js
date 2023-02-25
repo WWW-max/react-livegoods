@@ -2,7 +2,7 @@
  * 导出所有action
  */
 
-import { SET_CITY, SET_USER } from "./action-type";
+import { SET_CITY, SET_USER, DEL_USER } from "./action-type";
 
 export const setCityAction= (name) => ({type:SET_CITY,payload:name})
 
